@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Schedule</title>
+    <link rel="stylesheet" th:href="@{schedule.css}" href="../static/schedule.css">
+</head>
+<body>
+<div class="header">
+    <img src="../static/logo.png" th:src="@{logo.png}" alt="img">
+    <h2>Formula1 Schedule 2024</h2>
+    <div class="download">
+        <p>You can save races and download excel final with selected races schedule</p>
+        <form action="/export" method="post">
+            <input type="submit" value="Download">
+        </form>
+    </div>
+</div>
+<div class="schedule">
+    <div class="previous">
+        <div class="race" th:each="race: ${races}">
+            <form class="cell" action="/schedule" method="post" th:if="${!race.isSaved}">
+                <div class="country" th:text="${race.country}">Bahrain</div>
+                <div class="date" th:text="${race.date}"> - 08/04</div>
+                <input type="hidden" name="country" th:value="${race.country}"/>
+                <input type="hidden" name="date" th:value="${race.date}"/>
+                <input type="submit" value="Save event">
+            </form>
+            <form class="cell" action="/schedule/remove" method="post" th:if="${race.isSaved}">
+                <div class="country" th:text="${race.country}">Bahrain</div>
+                <div class="date" th:text="${race.date}"> - 08/04</div>
+                <input type="hidden" name="country" th:value="${race.country}"/>
+                <input class="unsave-button" type="submit" value="Unsave event">
+            </form>
+            <div class="track">
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 150 500 170"
+                     class="f1-svg-track">
+                    <path th:d="${race.track}"></path>
+                </svg>
+            </div>
+            <table>
+                <tr th:each="event: ${race.events}">
+                    <td th:text="${event.name}">Qualification1</td>
+                    <td th:text="${event.date}">07.04</td>
+                    <td th:text="${event.startTime}">17:30</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="next">
+
+    </div>
+</div>
+</body>
+</html>

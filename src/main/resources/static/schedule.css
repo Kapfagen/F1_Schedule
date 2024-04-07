@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Futura, serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    height: 250px;
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 250px;
+}
+
+.schedule {
+    width: 1200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.race {
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.cell .country {
+    font-size: 24px;
+}
+
+.cell .date {
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 10px;
+}
+
+table {
+    width: 350px;
+}
+
+table tr {
+    border-bottom: 1px solid #ccc;
+    font-weight: 400;
+}
+
+.track {
+    margin: 10px 0;
+}
+
+.track svg {
+    fill: #ff9400;
+}
+
+.cell {
+    position: relative;
+}
+
+.cell input {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    background: #3b46b2;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+}
+
+.download {
+    margin-left: 40px;
+    width: 250px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.download form input {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #3b46b2;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cell .unsave-button {
+    background: #a84821;
+}
